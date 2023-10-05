@@ -1,0 +1,256 @@
+<odoo>
+    <data>
+        <record id="website_menu_house_cleaning_booking" model="website.menu">
+            <field name="name">Booking</field>
+            <field name="url">/booking</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="sequence" type="int">6</field>
+        </record>
+        <template id="booking" name="bookingPage">
+            <link rel="stylesheet" href="house_cleaning/static/src/css/new.css" />
+
+            <t t-call="website.layout">
+                <div id="wrap" align="right"
+                    style="background-image: url('/house_cleaning/static/src/img/kitchen.jpg');  background-size: cover; background-repeat: no-repeat; height:600px; width:1850px;">
+                    <div class="navbar-content"
+                        style="padding:250px 300px; background-color: rgba(255, 255, 255, 0.7);">
+                        <h1 style="font-family: 'Times New Roman';text-align:center;">Book Your
+                            Cleaning</h1>
+                        <h2 style="font-family: 'Times New Roman;">Tell us where you are, and we
+                            will send you a maid your way</h2>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="container mt-6">
+                        <div class="row" style="padding:100px 10px">
+
+                            <div class="col-md-5">
+                                <form method="POST" action="/booking" class="booking_form">
+                                    <!-- <input type="hidden" name="csrf_token"
+                                    t-att-value="request.csrf_token()"/> -->
+                                    <div>
+
+                                        <div class="container1"
+                                            style="background-color: rgba(0, 0, 0, 0.6);width: 700px;">
+                                            <div class="title">
+                                                <h2 class="title"
+                                                    style="font-family: 'Times New Roman; color: white;">Choose
+                                                    Your Time</h2>
+
+                                            </div>
+                                            <br />
+                                            <div class="content">
+                                                <div class="user-details">
+                                                    <div class="col-form-label">
+                                                        <span class="details">Name:</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter your Name"
+                                                            name="name" id="name" autocomplete="off"
+                                                            required="True" />
+                                                    </div>
+
+                                                    <div class="col-form-label">
+                                                        <span class="details">Mobile Number:</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Mobile Number"
+                                                            name="mobile_number" id="mobile_number"
+                                                            required="True" />
+                                                    </div>
+
+                                                    <div class="col-form-label">
+                                                        <span class="details">Email:</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Email" name="email"
+                                                            id="email" required="True" />
+                                                    </div>
+
+                                                    <div class="col-form-label">
+
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Address" name="address"
+                                                            id="address" required="True" />
+                                                    </div>
+
+
+                                                    <div class="col-form-label">
+                                                        <span class="details">Service Type:</span>
+
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Service Type"
+                                                            t-att-value="service_type"
+                                                            name="service_type" id="service_type"
+                                                            required="True" />
+                                                    </div>
+
+                                                    <div class="col-form-label">
+                                                        <span class="details">Description About
+                                                            Service Type:</span>
+                                                        <input type="textarea" class="form-control"
+                                                            placeholder="Description About Cleaning Type"
+                                                            name="description" id="description"
+                                                            required="True" />
+                                                    </div>
+                                                    <div class="col-form-label">
+                                                        <span class="details">In Time:</span>
+                                                        <input type="time" class="form-control"
+                                                            placeholder="Enter In Time"
+                                                            name="in_time" id="in_time"
+                                                            required="True" />
+                                                    </div>
+                                                    <div class="col-form-label">
+                                                        <span class="details">Out Time:</span>
+                                                        <input type="time" class="form-control"
+                                                            placeholder="Enter Out Time"
+                                                            name="out_time" id="out_time"
+                                                            required="True" />
+                                                    </div>
+                                                    <div class="button">
+                                                        <input type="submit" value="Submit" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="/house_cleaning/static/src/img/homeClean.jpg" alt="Image"
+                                    class="img-fluid" style="height:3000px width:800px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="s_features pt32 pb32 o_colored_level" data-snippet="s_features"
+                    data-name="Features">
+
+                    <div class="container">
+                        <div class="row" style="border:200px;">
+                            <h1 style="font-family: 'Times New Roman';">Choose the Right Cleaning
+                                Plan for You</h1>
+                            <p>Whether you're looking for quick clean up of your home or an
+                                in-depth, heavy duty <br /> clean, we can help. We simplified the
+                                ordering process by providing three popular <br />options to choose
+                                from.</p>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-4 pt32 pb32 text-center o_colored_level">
+                                <img class="img-fluid o_we_custom_image m-3"
+                                    src="data:image/jpeg;base64,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"
+                                    alt="" data-original-title="" title=""
+                                    aria-describedby="tooltip471799"
+                                    style="width: 530%;" />
+                                <h3 style="font-family: 'Times New Roman';">Quick Clean</h3>
+                                <br />
+                                <h3>$50</h3>
+                                <p style="font-family: 'Times New Roman'; font-size: 0.7cm;"> The
+                                    perfect option for a surface clean, our <br />maids will be in
+                                    and out within an hour. <br />
+                                </p>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+
+                                <div class="container mt-5">
+                                    <h2 style="font-family: 'Times New Roman'">Quick clean Plans</h2>
+                                    <ul class="list-group"
+                                        style="font-family: 'Times New Roman';font-size: 0.5cm;">
+                                        <li class="list-group-item">Dusting</li>
+                                        <li class="list-group-item">Wiping Down Surfaces</li>
+                                        <li class="list-group-item">Kitchen Cleaning</li>
+                                        <li class="list-group-item">Straightening Up</li>
+                                        <li class="list-group-item">Vacuuming or Sweeping</li>
+                                        <li class="list-group-item">Trash Removal</li>
+                                        <li class="list-group-item">Removing Visible Stains</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 pt32 pb32 text-center o_colored_level">
+                                <img class="img-fluid o_we_custom_image m-3"
+                                    src="data:image/jpeg;base64,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"
+                                    alt="" data-original-title="" title=""
+                                    aria-describedby="tooltip619381"
+                                    style="width: 530%;" />
+                                <h3 style="font-family: 'Times New Roman';font-size: 0.7cm">Basic
+                                    Clean</h3>
+                                <br />
+                                <h3>$150</h3>
+
+                                <p
+                                    style="text-align:justify; font-family: 'Times New Roman';font-size: 0.7cm;">
+                                    For all those work-out chores that leave your arms sore, your
+                                    hair covered in dust and your hands dry from dishwasher soap,
+                                    our basic clean offers a more thorough service for your home or
+                                    office space.
+
+                                </p>
+                                <br />
+                                <div class="container ">
+                                    <h2 style="font-family: 'Times New Roman'">Basic clean Plans</h2>
+                                    <ul class="list-group"
+                                        style="font-family: 'Times New Roman';font-size: 0.5cm;">
+                                        <li class="list-group-item">Spot Cleaning</li>
+                                        <li class="list-group-item">Clutter Removal</li>
+                                        <li class="list-group-item">Kitchen Touch-Up</li>
+                                        <li class="list-group-item">Trash Removal</li>
+                                        <li class="list-group-item">Straightening Up</li>
+                                        <li class="list-group-item">Freshening Up</li>
+                                        <li class="list-group-item">Sweeping or Shaking Out Doormats</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 pt32 pb32 text-center o_colored_level">
+                                <img class="img-fluid o_we_custom_image m-3"
+                                    src="https://media.angi.com/s3fs-public/man-home-cleaning-service-vacuuming.jpg"
+                                    alt="" data-original-title="" title=""
+                                    aria-describedby="tooltip324355"
+                                    style="width: 530%;" />
+                                <h3 style="font-family: 'Times New Roman';font-size: 0.7cm;">Deep
+                                    Clean</h3>
+                                <br />
+                                <h3>$210</h3>
+
+                                <p
+                                    style=" font-family: 'Times New Roman'; text-align:justify; font-size: 0.7cm;">
+                                    Our maids will leave your home virtually spotless, covering
+                                    everything included in a basic clean plus more. With such a
+                                    sweeping clean, you won't need air fresheners to give your home
+                                    a crisp, breezy fragrance. <br />
+                                </p>
+                                <div class="container mt-5">
+                                    <h2 style="font-family: 'Times New Roman'">Deep clean Plans</h2>
+                                    <ul class="list-group"
+                                        style="font-family: 'Times New Roman';font-size: 0.5cm;">
+                                        <li class="list-group-item">Dusting and Wiping Down Surfaces</li>
+                                        <li class="list-group-item">Kitchen Cleaning</li>
+                                        <li class="list-group-item">Window Cleaning</li>
+                                        <li class="list-group-item">Floor Cleaning</li>
+                                        <li class="list-group-item">Appliance Cleaning</li>
+                                        <li class="list-group-item">Appliance Cleaning</li>
+                                        <li class="list-group-item">Deep Vacuuming</li>
+                                        <li class="list-group-item">Closet and Storage Cleaning</li>
+                                        <li class="list-group-item">Door and Trim Cleaning</li>
+                                        <li class="list-group-item">Light Fixture Cleaning</li>
+                                        <li class="list-group-item">Blind and Shutter Cleaning</li>
+                                        <li class="list-group-item">Deep Refrigerator Cleaning</li>
+                                        <li class="list-group-item">Garage and Basement Cleaning</li>
+                                        <li class="list-group-item">Exterior Cleaning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br />
+                <br />
+            </t>
+
+        </template>
+
+    </data>
+</odoo>

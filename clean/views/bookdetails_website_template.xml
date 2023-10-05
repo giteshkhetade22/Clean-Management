@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- website Menu -->
+
+        <record id="menu_webpage_booking" model="website.menu">
+            <field name="name">Booking</field>
+            <field name="url">/booking</field>
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="sequence" type="int">80</field>
+        </record>
+
+
+<!-- template code -->
+    <template id="booking_page" name="Booking Page">
+        <t t-call="website.layout">
+            <link rel="stylesheet" type="text/css" href="/clean/static/src/css/style1.css" />
+            <div class="container">
+                <div class="booking-form">
+                    <h1>Booking Details</h1>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label for="firstname">First Name</label>
+                                <input type="text" id="firstname" name="firstname" placeholder="First Name" required="True"/>
+                            </div>
+                            <div class="input-group">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required="True"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" placeholder="Email" required="True"/>
+                            </div>
+                            <div class="input-group">
+                                <label for="mobile">Mobile No</label>
+                                <input type="text" id="mobile" name="mobile" placeholder="Mobile No" required="True"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Details</label>
+                            <select id="service" name="service" required="True">
+                                <option value="quick-clean">Quick Clean</option>
+                                <option value="basic-cleaning">Basic Cleaning</option>
+                                <option value="deep-cleaning">Deep Cleaning</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Service Address</label>
+                            <textarea id="address" name="address" placeholder="Service Address" required="True"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="City" required="True"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select id="state" name="state" required="True">
+                                <option value="" disabled="True" selected="True"> Select State</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <!-- Add other state options here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Info</label>
+                            <textarea id="additionalInfo" name="additionalInfo" placeholder="Additional Info"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment">Payment Details</label>
+                            <select id="payment" name="payment" required="True">
+                                <option value="" disabled="True" selected="True"> Select Your Payment Type</option>
+                                <option value="cash">Cash</option>
+                                <option value="online">Online</option>
+                                <option value="netbanking">Net Banking</option>
+                            </select>
+                        </div>
+                        <button class="button" type="submit">Submit Booking</button>
+                    </form>
+                </div>
+                <div class="booking-summary">
+                    <h2>Booking Summary</h2>
+                    <div id="summary"></div>
+                </div>
+            </div>
+            <script type="text/javascript" src="/clean/static/src/js/script1.js"></script>
+        </t>
+    </template>
+</odoo>

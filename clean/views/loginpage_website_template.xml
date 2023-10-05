@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- website Menu -->
+
+    <record id="menu_webpage_login" model="website.menu">
+        <field name="name">User Login</field>
+        <field name="url">/user_login</field>
+        <field name="parent_id" ref="website.main_menu" />
+        <field name="sequence" type="int">70</field>
+    </record>
+
+    <!-- login page  -->
+    <template id="webpage_login_template" name="Login Form">
+        <t t-call="website.layout">
+            <link rel="stylesheet" type="text/css" href="/clean/static/src/css/style.css" />
+            <div class="content">
+                <div class="login-form">
+                    <h1>LOGIN PAGE FOR USER</h1>
+                    <form method="POST" action="/user_submit" name="userlogin" onsubmit="loginValidation()">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="name">USER NAME:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="name" id="name" placeholder="USER NAME" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password">PASSWORD:</label>
+                                </td>
+                                <td>
+                                    <input type="password" name="password" id="password" placeholder="USER PASSWORD" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" class="submit" value="Login" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <script type="text/javascript" src="/clean/static/src/js/script.js"></script>
+        </t>
+    </template>
+    
+    <template id="login_template" name="Login Success">
+        <t t-call="website.layout">
+            <div style="padding-left:500px">
+                <div align="center" style="width:500px;">
+                    <img
+                        src="https://freepngimg.com/save/87855-checkbox-leaf-icons-mark-computer-grass-check/1000x1000"
+                        style="width:20%; height:20%;" />
+                    <h2 align="center" style="font-size: 20px; font-weight: bold;">Login
+                        successful!</h2>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

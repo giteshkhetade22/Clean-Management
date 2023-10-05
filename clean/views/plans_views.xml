@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- action view -->
+
+        <record id="clean_plans_action" model="ir.actions.act_window">
+            <field name="name">Plans</field>
+            <field name="res_model">clean.plans</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p> Plans Informations</p>
+            </field>
+        </record>
+
+        <!-- form view -->
+
+        <record id="clean_plans_view_form" model="ir.ui.view">
+            <field name="name">clean.plans.form</field>
+            <field name="model">clean.plans</field>
+            <field name="arch" type="xml">
+                <form string="Plans Information">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="image" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- tree view -->
+        <record id="clean_plans_view_tree" model="ir.ui.view">
+            <field name="name">clean.plans.tree</field>
+            <field name="model">clean.plans</field>
+            <field name="arch" type="xml">
+                <tree string="Plan Information">
+                    <field name="name" />
+
+                    <field name="image" widget="image" class='oe_avatar' options='{"preview_image": "image"}' height="50"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <menuitem
+            id="clean_plans_menu"
+            name="Plans"
+            action="clean_plans_action"
+            parent="clean_menu_root"
+            sequence="40"/>
+
+    </data>
+
+</odoo>
